@@ -135,4 +135,5 @@ button.new-game {
   display: block;
   margin-inline: auto;
   cursor: pointer;
+  font-weight: 700;
 }
