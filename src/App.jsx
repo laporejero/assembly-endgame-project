@@ -5,19 +5,19 @@ import { languages } from '../languages.js'
 import './App.css'
 
 function App() {
+
   /**
-   * Goal: Build out the main parts of our app
-   * 
-   * Challenge: 
-   * 1. Save a "currentWord" in state. Initialize as "react".
-   * 2. Map over the letters of the word (you'll need to turn 
-   *    the string into an array of letters first) and display
-   *    each one as a <span>. Capitalize the letters when
-   *    displaying them.
-   * 3. Style to look like the design. You can get the underline 
-   *    effect on the box using `border-bottom`.
-   */
+ * Goal: Allow the user to start guessing the letters
+ * 
+ * Challenge: TBA
+ * 
+ * Think: what would be the best way to store the user's
+ * guessed letters?
+ */
+
   const [currentWord, setCurrentWord] = useState("react")
+
+  const alphabet = "abcdefghijklmnopqrstuvwxyz"
 
   const languageElements = languages.map((lang) => {
     return (
@@ -32,7 +32,11 @@ function App() {
   })
 
   const letterElements = currentWord.split("").map((letter, index) => (
-      <span key={index} className='box'>{letter.toUpperCase()}</span>
+    <span key={index} className='box'>{letter.toUpperCase()}</span>
+  ))
+
+  const keyboardElements = alphabet.split("").map((letter) => (
+    <button key={letter} className='keyboard-btn'>{letter.toUpperCase()}</button>
   ))
 
   return (
@@ -45,6 +49,10 @@ function App() {
       <section className='word'>
         {letterElements}
       </section>
+      <section className='keyboard'>
+        {keyboardElements}
+      </section>
+      <button className='new-game'>New Game</button>
     </>
   )
 }

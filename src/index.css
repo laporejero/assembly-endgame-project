@@ -28,6 +28,8 @@ header > p {
     font-size: 14px;
     color: #8E8E8E;
     margin-bottom: 20px;
+    max-width: 350px;
+    margin: 0 auto 20px;
 }
 
 /* ------- GAME STATUS SECTION ------- */
@@ -38,6 +40,8 @@ header > p {
   align-items: center;
   color: #F9F4DA;
   border-radius: 4px;
+  max-width: 350px;
+  margin: 0 auto;
 }
 
 .game-status > h2 {
@@ -82,6 +86,7 @@ section.word {
   align-content: center;
   justify-content: center;
   gap: 2px;
+  margin-bottom: 20px;
 }
 
 .box {
@@ -95,4 +100,39 @@ section.word {
   color: #F9F4DA;
   font-weight: 700;
   font-size: 18px;
+}
+
+/* ------- ALPHABET SECTION ------- */
+section.keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 470px;
+  margin: 0 auto;
+  gap: 6px;
+  margin-bottom: 36px;
+}
+
+.keyboard-btn { 
+  height: 40px;
+  width: 40px;
+  background-color: #FCBA29;
+  border: 1px solid #D7D7D7;
+  border-radius: 3px;
+  color: #1E1E1E;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ------- NEW GAME BUTTON ------- */
+button.new-game {
+  background-color: #11B5E5;
+  border: 1px solid #D7D7D7;
+  border-radius: 4px;
+  width: 225px;
+  height: 40px;
+  padding: 6px 12px;
+  display: block;
+  margin-inline: auto;
+  cursor: pointer;
 }
