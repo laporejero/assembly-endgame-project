@@ -16,8 +16,6 @@ body {
 /* ------- HEADER ------- */
 header {
   text-align: center;
-  width: 352px;
-  margin: auto;
 }
 
 header > h1 {
@@ -32,15 +30,14 @@ header > p {
     margin-bottom: 20px;
 }
 
-/* ------- GAME STATUS ------- */
+/* ------- GAME STATUS SECTION ------- */
 .game-status {
   background-color: #10A95B;
-  border-radius: 4px;
-  padding: 6px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  color: #F9F4DA;
+  border-radius: 4px;
 }
 
 .game-status > h2 {
@@ -49,6 +46,7 @@ header > p {
 }
 
 .game-tatus > p {
+  margin: 5px;
   font-size: 16px;
 }
 
@@ -59,15 +57,16 @@ header > p {
   margin: 0;
 }
 
-/* ------- LANGUAGE ------- */
+/* ------- LANGUAGES SECTION ------- */
 .language-chips-container {
   max-width: 350px;
-  margin: 36px 43px;
+  margin: 36px auto;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 5px;
+  margin-bottom: 36px;
 }
 
 .language-chip {
@@ -75,4 +74,25 @@ header > p {
   font-size: 12px;
   font-weight: 700;
   border-radius: 3px;
+}
+
+/* ------- WORD SECTION ------- */
+section.word {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.box {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #323232;
+  border-bottom: 1px solid #F9F4DA;
+  color: #F9F4DA;
+  font-weight: 700;
+  font-size: 18px;
 }
