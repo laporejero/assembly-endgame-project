@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Header from './components/Header.jsx'
 import Status from './components/Status.jsx'
 import { languages } from '../languages.js'
@@ -6,18 +6,21 @@ import './App.css'
 
 function App() {
 
-  /**
- * Goal: Allow the user to start guessing the letters
- * 
- * Challenge: TBA
- * 
- * Think: what would be the best way to store the user's
- * guessed letters?
- */
-
   const [currentWord, setCurrentWord] = useState("react")
 
   const alphabet = "abcdefghijklmnopqrstuvwxyz"
+
+  const [guessedLetters, setGuessedLetters] = useState([])
+  console.log(guessedLetters);
+
+  function addGuessedLetter(letter) {
+    setGuessedLetters(prev => {
+        if (prev.includes(letter)) return prev
+        return [...prev, letter]
+        // prev.includes(letter) ? prev : [...prev, letter]
+      }
+    )
+  }
 
   const languageElements = languages.map((lang) => {
     return (
@@ -36,7 +39,9 @@ function App() {
   ))
 
   const keyboardElements = alphabet.split("").map((letter) => (
-    <button key={letter} className='keyboard-btn'>{letter.toUpperCase()}</button>
+    <button key={letter} className='keyboard-btn' onClick={() => addGuessedLetter(letter)}>
+      {letter.toUpperCase()}
+    </button>
   ))
 
   return (
