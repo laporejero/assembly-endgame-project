@@ -163,6 +163,11 @@ section.keyboard > button.wrong {
   background-color: #EC5D49;
 }
 
+section.keyboard > button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 /* ------- NEW GAME BUTTON ------- */
 button.new-game {
   background-color: #11B5E5;
