@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import clsx from 'clsx'
 import Header from './components/Header.jsx'
 import Status from './components/Status.jsx'
 import { languages } from '../languages.js'
@@ -20,6 +21,12 @@ function App() {
         // prev.includes(letter) ? prev : [...prev, letter]
       }
     )
+
+    if (currentWord.includes(letter)) {
+      console.log("correct!")
+    } else {
+      console.log(`${letter} not found`)
+    }
   }
 
   const languageElements = languages.map((lang) => {
@@ -38,11 +45,25 @@ function App() {
     <span key={index} className='box'>{letter.toUpperCase()}</span>
   ))
 
-  const keyboardElements = alphabet.split("").map((letter) => (
-    <button key={letter} className='keyboard-btn' onClick={() => addGuessedLetter(letter)}>
-      {letter.toUpperCase()}
-    </button>
-  ))
+  const keyboardElements = alphabet.split("").map((letter) => {
+    const isGuessed = guessedLetters.includes(letter)
+    const isCorrect = isGuessed && currentWord.includes(letter)
+    const isWrong = isGuessed && !currentWord.includes(letter)
+    const className = clsx({
+      correct: isCorrect,
+      wrong: isWrong
+    })
+
+    return (
+      <button 
+        className={className}
+        key={letter}
+        onClick={() => addGuessedLetter(letter)}
+      >
+        {letter.toUpperCase()}
+      </button>
+    )
+  })
 
   return (
     <>

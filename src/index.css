@@ -113,7 +113,7 @@ section.keyboard {
   margin-bottom: 36px;
 }
 
-.keyboard-btn { 
+section.keyboard > button { 
   height: 40px;
   width: 40px;
   background-color: #FCBA29;
@@ -122,6 +122,14 @@ section.keyboard {
   color: #1E1E1E;
   font-weight: 600;
   cursor: pointer;
+}
+
+section.keyboard > button.correct {
+  background-color: #10A95B;
+}
+
+section.keyboard > button.wrong {
+  background-color: #EC5D49;
 }
 
 /* ------- NEW GAME BUTTON ------- */
