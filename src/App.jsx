@@ -6,13 +6,20 @@ import { languages } from '../languages.js'
 import './App.css'
 
 function App() {
-
+  // State values
   const [currentWord, setCurrentWord] = useState("react")
-
-  const alphabet = "abcdefghijklmnopqrstuvwxyz"
-
   const [guessedLetters, setGuessedLetters] = useState([])
-  console.log(guessedLetters);
+
+  // Derived values
+  const wrongGuessCount = 
+    guessedLetters.filter(letter => !currentWord.includes(letter)).length
+  console.log(wrongGuessCount)
+  const isGameWon = currentWord.split("").every(letter => guessedLetters.includes(letter))
+  const isGameLost = wrongGuessCount >= languages.length - 1
+  let isGameOver = isGameWon || isGameLost
+
+  // Static values
+  const alphabet = "abcdefghijklmnopqrstuvwxyz"
 
   function addGuessedLetter(letter) {
     setGuessedLetters(prev => {
@@ -29,10 +36,10 @@ function App() {
     }
   }
 
-  const languageElements = languages.map((lang) => {
+  const languageElements = languages.map((lang, index) => {
     return (
       <span 
-        className='language-chip' 
+        className={clsx('language-chip', index < wrongGuessCount && "lost")} 
         style={{ backgroundColor: lang.backgroundColor, color: lang.color }}
         key={lang.name}
       >
@@ -83,7 +90,7 @@ function App() {
       <section className='keyboard'>
         {keyboardElements}
       </section>
-      <button className='new-game'>New Game</button>
+      {isGameOver && <button className='new-game'>New Game</button>}
     </>
   )
 }
