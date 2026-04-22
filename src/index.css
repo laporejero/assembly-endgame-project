@@ -181,3 +181,16 @@ button.new-game {
   cursor: pointer;
   font-weight: 700;
 }
+
+/* ------- SCREEN READER ONLY ------- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

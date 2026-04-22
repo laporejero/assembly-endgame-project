@@ -68,6 +68,8 @@ function App() {
         className={className}
         key={letter}
         onClick={() => addGuessedLetter(letter)}
+        aria-disabled={guessedLetters.includes(letter)}
+        aria-label={`Letter ${letter}`}
         disabled={isGameOver}
       >
         {letter.toUpperCase()}
@@ -84,7 +86,7 @@ function App() {
   return (
     <>
       <Header />
-      <section className={gameStatusClass}>
+      <section aria-live='polite' role='status' className={gameStatusClass}>
         {
           !isGameOver && isLastGuessIncorrect ? (
             <Status message={getFarewellText(languages[wrongGuessCount - 1].name)} class='farewell-message' />
@@ -94,7 +96,6 @@ function App() {
             <Status headline='Game over!' message='You lose! Better start learning Assembly 😭' />
           )
         }
-
       </section>
       
       <div className='language-chips-container'>
@@ -102,6 +103,9 @@ function App() {
       </div>
       <section className='word'>
         {letterElements}
+      </section>
+      <section className='sr-only' aria-live='polite' role='status'>
+        <p>Current word: {currentWord.split("").map(letter => guessedLetters.includes(letter) ? letter + "." : "blank.").join(" ")}</p>
       </section>
       <section className='keyboard'>
         {keyboardElements}
