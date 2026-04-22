@@ -86,7 +86,7 @@ function App() {
       <section className={gameStatusClass}>
         {
           !isGameOver && isLastGuessIncorrect ? (
-            <Status message='Bye!' class='farewell-message' />
+            <Status message={getFarewellText(languages[wrongGuessCount - 1].name)} class='farewell-message' />
           ) : isGameWon ? (
             <Status headline='You win!' message='Well done! 🎉' /> 
           ) : isGameLost && (

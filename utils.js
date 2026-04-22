@@ -6,7 +6,7 @@ export function getFarewellText(language) {
         `We'll miss you, ${language}`,
         `On no, not, ${language}!`,
         `${language} bites the dust`,
-        `Gone but not forgotten, ${language}`
+        `Gone but not forgotten, ${language}`,
         `The end of ${language} as we know it`,
         `Off into the sunset, ${language}`,
         `${language}, it's been real`,
