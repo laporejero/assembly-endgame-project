@@ -80,7 +80,11 @@ function App() {
   return (
     <>
       <Header />
-      <Status />
+      {isGameWon ?
+        <Status className='won' headline='You win!' message='Well done! 🎉' /> : 
+        isGameLost && 
+          <Status className='lost' headline='Game over!' message='You lose! Better start learning Assembly 😭' />
+      }
       <div className='language-chips-container'>
         {languageElements}
       </div>

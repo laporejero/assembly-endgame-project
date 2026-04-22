@@ -34,7 +34,6 @@ header > p {
 
 /* ------- GAME STATUS SECTION ------- */
 .game-status {
-  background-color: #10A95B;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -42,6 +41,14 @@ header > p {
   border-radius: 4px;
   max-width: 350px;
   margin: 0 auto;
+}
+
+.game-status.won {
+  background-color: #10A95B;
+}
+
+.game-status.lost {
+  background-color: #BA2A2A;
 }
 
 .game-status > h2 {

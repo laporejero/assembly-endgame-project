@@ -1,8 +1,10 @@
-export default function Status() {
+import clsx from "clsx"
+
+export default function Status(props) {
     return (
-        <section className="game-status">
-            <h2>You win!</h2>
-            <p>Well done! 🎉</p>
+        <section className={clsx("game-status", props.className)}>
+            <h2>{props.headline}</h2>
+            <p>{props.message}</p>
         </section>
     )
 }
