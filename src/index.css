@@ -36,9 +36,11 @@ header > p {
 .game-status {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   color: #F9F4DA;
   border-radius: 4px;
+  min-height: 60px;
   max-width: 350px;
   margin: 0 auto;
 }
@@ -51,9 +53,15 @@ header > p {
   background-color: #BA2A2A;
 }
 
+.game-status.farewell {
+  background-color: #7A5EA7;
+  border: 1px dashed #323232;
+  font-style: italic;
+  font-weight: 400;
+}
+
 .game-status > h2 {
   font-size: 20px;
-  
 }
 
 .game-tatus > p {

@@ -3,6 +3,7 @@ import clsx from 'clsx'
 import Header from './components/Header.jsx'
 import Status from './components/Status.jsx'
 import { languages } from '../languages.js'
+import { getFarewellText } from '../utils.js'
 import './App.css'
 
 function App() {
@@ -16,7 +17,9 @@ function App() {
   console.log(wrongGuessCount)
   const isGameWon = currentWord.split("").every(letter => guessedLetters.includes(letter))
   const isGameLost = wrongGuessCount >= languages.length - 1
-  let isGameOver = isGameWon || isGameLost
+  const isGameOver = isGameWon || isGameLost
+  const lastGuessedLetter = guessedLetters[guessedLetters.length - 1]
+  const isLastGuessIncorrect = lastGuessedLetter && !currentWord.includes(lastGuessedLetter)
 
   // Static values
   const alphabet = "abcdefghijklmnopqrstuvwxyz"
@@ -28,12 +31,6 @@ function App() {
         // prev.includes(letter) ? prev : [...prev, letter]
       }
     )
-
-    if (currentWord.includes(letter)) {
-      console.log("correct!")
-    } else {
-      console.log(`${letter} not found`)
-    }
   }
 
   const languageElements = languages.map((lang, index) => {
@@ -79,18 +76,24 @@ function App() {
 
   const gameStatusClass = clsx("game-status", {
     won: isGameWon,
-    lost: isGameLost
+    lost: isGameLost,
+    farewell: !isGameOver && isLastGuessIncorrect
   })
 
   return (
     <>
       <Header />
       <section className={gameStatusClass}>
-        {isGameWon ?
-        <Status headline='You win!' message='Well done! 🎉' /> : 
-          isGameLost && 
+        {
+          !isGameOver && isLastGuessIncorrect ? (
+            <Status message='Bye!' class='farewell-message' />
+          ) : isGameWon ? (
+            <Status headline='You win!' message='Well done! 🎉' /> 
+          ) : isGameLost && (
             <Status headline='Game over!' message='You lose! Better start learning Assembly 😭' />
+          )
         }
+
       </section>
       
       <div className='language-chips-container'>
