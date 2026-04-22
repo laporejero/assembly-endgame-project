@@ -3,12 +3,12 @@ import clsx from 'clsx'
 import Header from './components/Header.jsx'
 import Status from './components/Status.jsx'
 import { languages } from '../languages.js'
-import { getFarewellText } from '../utils.js'
+import { getFarewellText, getRandomWord } from '../utils.js'
 import './App.css'
 
 function App() {
   // State values
-  const [currentWord, setCurrentWord] = useState("react")
+  const [currentWord, setCurrentWord] = useState(getRandomWord)
   const [guessedLetters, setGuessedLetters] = useState([])
 
   // Derived values
