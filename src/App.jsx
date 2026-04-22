@@ -44,7 +44,9 @@ function App() {
   const letterElements = currentWord.split("").map((letter, index) => {
     const isReaveled = guessedLetters.includes(letter)
     return (
-      <span key={index} className='box'>{isReaveled ? letter.toUpperCase() : ""}</span>
+      <span key={index} className='box'>
+        {isReaveled ? letter.toUpperCase() : ""}
+      </span>
     )
   })
 
