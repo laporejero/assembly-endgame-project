@@ -8,7 +8,7 @@ import './App.css'
 
 function App() {
   // State values
-  const [currentWord, setCurrentWord] = useState(getRandomWord)
+  const [currentWord, setCurrentWord] = useState(() => getRandomWord())
   const [guessedLetters, setGuessedLetters] = useState([])
 
   // Derived values
