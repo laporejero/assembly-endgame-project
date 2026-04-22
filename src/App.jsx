@@ -4,6 +4,7 @@ import Header from './components/Header.jsx'
 import Status from './components/Status.jsx'
 import { languages } from '../languages.js'
 import { getFarewellText, getRandomWord } from '../utils.js'
+import ReactConfetti from 'react-confetti'
 import './App.css'
 
 function App() {
@@ -46,10 +47,12 @@ function App() {
   })
 
   const letterElements = currentWord.split("").map((letter, index) => {
-    const isReaveled = guessedLetters.includes(letter)
+    const isRevealed = guessedLetters.includes(letter)
     return (
       <span key={index} className='box'>
-        {isReaveled ? letter.toUpperCase() : ""}
+        {isRevealed ? letter.toUpperCase() : isGameOver && (
+          <span style={{color: "#EC5D49"}}>{letter.toUpperCase()}</span>
+        )}
       </span>
     )
   })
@@ -90,6 +93,9 @@ function App() {
 
   return (
     <>
+      {
+        isGameWon && <ReactConfetti recycle={false} numberOfPieces={1000} />
+      }
       <Header />
       <section aria-live='polite' role='status' className={gameStatusClass}>
         {
