@@ -41,9 +41,12 @@ function App() {
     )
   })
 
-  const letterElements = currentWord.split("").map((letter, index) => (
-    <span key={index} className='box'>{letter.toUpperCase()}</span>
-  ))
+  const letterElements = currentWord.split("").map((letter, index) => {
+    const isReaveled = guessedLetters.includes(letter)
+    return (
+      <span key={index} className='box'>{isReaveled ? letter.toUpperCase() : ""}</span>
+    )
+  })
 
   const keyboardElements = alphabet.split("").map((letter) => {
     const isGuessed = guessedLetters.includes(letter)
