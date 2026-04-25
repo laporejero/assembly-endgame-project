@@ -25,8 +25,11 @@ The project was developed by following structured instructions from Scrimba whil
 This project helped reinforce core React concepts, especially state management and derived state logic in a real interactive application. I also improved my ability to translate a Figma design into a functional UI, focusing on consistent styling, responsive layout decisions, and visual feedback systems.
 
 <img width="1302" height="732" alt="Screenshot (1010)" src="https://github.com/user-attachments/assets/d0dbc1e3-9721-49b5-a153-6449c1cd5ad0" />
+
 <img width="1238" height="696" alt="Screenshot (1009)" src="https://github.com/user-attachments/assets/386517a3-6e94-4874-a1b2-5af39393c8c9" />
+
 <img width="1210" height="681" alt="Screenshot (1008)" src="https://github.com/user-attachments/assets/6bb03744-98cc-484d-8f06-54fb464427e4" />
+
 <img width="1696" height="954" alt="Screenshot (1011)" src="https://github.com/user-attachments/assets/02100a90-2eb1-4678-b2f7-f178c0f68f44" />
 
 
